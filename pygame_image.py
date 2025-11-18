@@ -20,17 +20,26 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x = tmr
+        t = tmr
+        x = 0
+        y = 0
+
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_RIGHT] == True:
-            kk_rct.move_ip((+1, 0))
-            screen.blit(bg_img, [-x, 0])
-            screen.blit(fbg_img, [-x + 1600, 0])
-            screen.blit(bg_img, [-x + 3200, 0])
-        else:
-            screen.blit(bg_img, [-x, 0])
-            screen.blit(fbg_img, [-x + 1600, 0])
-            screen.blit(bg_img, [-x + 3200, 0])
+            x += 2
+        elif key_lst[pg.K_LEFT] == True:
+            x -= 1
+        elif key_lst[pg.K_UP] == True:
+            y -= 1
+        elif key_lst[pg.K_DOWN] == True:
+            y += 1
+        
+        screen.blit(bg_img, [-t, 0])
+        screen.blit(fbg_img, [-t + 1600, 0])
+        screen.blit(bg_img, [-t + 3200, 0])
+        
+        kk_rct.move_ip((x - 1, y))
+    
         screen.blit(kk_img, kk_rct)
 
         pg.display.update()
