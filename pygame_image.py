@@ -31,17 +31,6 @@ def main():
             screen.blit(bg_img, [-x, 0])
             screen.blit(fbg_img, [-x + 1600, 0])
             screen.blit(bg_img, [-x + 3200, 0])
-
-
-        
-        # if key_lst[pg.K_UP]:
-        #     kk_rct.move_ip((0, -1))
-        # elif key_lst[pg.K_DOWN]:
-        #     kk_rct.move_ip((0, +1))
-        # elif key_lst[pg.K_RIGHT]:
-        #     kk_rct.move_ip((+1, 0))
-        # elif key_lst[pg.K_LEFT]:
-        #     kk_rct.move_ip((-1, 0))
         screen.blit(kk_img, kk_rct)
 
         pg.display.update()
